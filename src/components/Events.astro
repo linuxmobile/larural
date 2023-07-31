@@ -1,7 +1,25 @@
 ---
-import firstImage from '../assets/hero-1.jpg'
-import secondImage from '../assets/hero-3.jpeg'
-import thirdImage from '../assets/hero-2.jpeg'
-import fourthImage from '../assets/hero-4.jpeg'
+import { getCollection } from "astro:content";
+import EventComponent from "./EventComponent.astro";
+
+const posts = (await getCollection('events')).sort((a, b) => b.data.endDate.valueOf() - a.data.endDate.valueOf())
 ---
+<section class="">
+  <h3 class="uppercase font-black bg-clip-text text-transparent bg-gradient-to-br from-rural-red to-rural-yellow text-4xl max-w-xs leading-none">Últimos Eventos</h3>
+  <ul class="grid gap-y-2 [&>li>img]:aspect-video [&>li>img]:object-cover py-3 group-hover:visible">
+    {
+      posts.map((event) => (
+          <EventComponent
+            title={event.data.title}
+            description={event.data.description}
+            endDate={event.data.endDate}
+            startDate={event.data.startDate}
+            categories={event.data.categories}
+            price={event.data.price}
+            image={event.data.image}
+          />
+      ))
+    }
+  </ul>
+</section>
 

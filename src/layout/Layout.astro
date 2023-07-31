@@ -18,7 +18,7 @@ const { title, description, publishDate = new Date() } = Astro.props
 <!DOCTYPE html>
 <html lang="en" class="overflow-x-hidden 2xl:max-w-6xl mx-auto font-mona-sans">
   <Head title={title} description={description} publishDate={publishDate} />
-  <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white">
+  <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white px-4">
     <div class="relative z-20">
       <slot />
     </div>
