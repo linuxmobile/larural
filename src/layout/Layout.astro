@@ -1,6 +1,7 @@
 ---
 import '@styles/global.css'
 import Head from '@components/Head.astro'
+import Header from '@components/Header.astro'
 
 interface Props {
   title: string
@@ -20,6 +21,7 @@ const { title, description, publishDate = new Date() } = Astro.props
   <Head title={title} description={description} publishDate={publishDate} />
   <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white px-4">
     <div class="relative z-20">
+      <Header />
       <slot />
     </div>
   </body>
