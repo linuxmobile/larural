@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+
+import ArticlesComponent from '@components/ArticlesComponent.astro'
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<section class="flex flex-col items-center justify-center gap-y-8 relative z-20">
+  <h3 class="text-5xl font-black [font-stretch:ultra-expanded] text-transparent bg-clip-text bg-gradient-to-tr to-rural-yellow from-rural-red">Últimos Artículos</h3>
+  <ul class="flex flex-col gap-y-6">
+    {
+      posts.map((post) => (
+        <ArticlesComponent
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+        />
+      ))
+    }
+  </ul>
+</section>

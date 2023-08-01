@@ -1,0 +1,13 @@
+---
+const { title, description, date } = Astro.props
+
+const shortDate = date.toLocaleDateString('es-AR', {
+  day: 'numeric',
+  month: 'short',
+})
+---
+<li class="bg-rural-black/60 backdrop-blur-lg rounded-lg p-3 border border-rural-black flex flex-col gap-y-5 uppercase dark:bg-white/10 dark:border-rural-white/50 shadow-lg shadow-rural-black dark:shadow-none">
+  <p class="rounded-full px-3 py-1 bg-rural-white w-fit text-rural-black font-bold shadow-md shadow-rural-black dark:shadow-none">{shortDate}</p>
+  <h3 class="text-3xl font-extrabold text-rural-yellow leading-none [font-stretch:ultra-expanded]">{title}</h3>
+  <p class="text-lg leading-tight line-clamp-6 text-rural-white">{description}</p>
+</li>
