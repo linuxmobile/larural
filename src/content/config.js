@@ -25,6 +25,13 @@ const events = defineCollection({
     categories: z.array(z.string()).optional(),
 	}),
 })
+const services = defineCollection({
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    image: image(),
+    date: z.string().or(z.date()).transform((val) => new Date(val)),
+  }),
+})
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
-export const collections = { blog, events }
+export const collections = { blog, events, services }

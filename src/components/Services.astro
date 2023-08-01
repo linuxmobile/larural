@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import ServicesComponent from '@components/ServicesComponent.astro'
+
+const posts = (await getCollection('services')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+---
+<section class="py-24 flex flex-col items-start justify-center gap-y-3">
+  <h2 class="bg-clip-text text-transparent bg-gradient-to-tl to-rural-red from-rural-yellow text-5xl font-black">Servicios</h3>
+  <ul class="">
+    {
+      posts.map((post) => (
+        <ServicesComponent title={post.data.title} image={post.data.image} />
+      ))
+    }
+  </ul>
+</section>
