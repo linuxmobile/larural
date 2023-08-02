@@ -2,6 +2,7 @@
 import '@styles/global.css'
 import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
+import Footer from '@components/Footer.astro'
 
 interface Props {
   title: string
@@ -19,10 +20,11 @@ const { title, description, publishDate = new Date() } = Astro.props
 <!DOCTYPE html>
 <html lang="en" class="overflow-x-hidden 2xl:max-w-6xl mx-auto font-mona-sans">
   <Head title={title} description={description} publishDate={publishDate} />
-  <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white px-4">
-    <div class="relative z-20">
+  <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white">
+    <div class="relative z-20 px-4">
       <Header />
       <slot />
     </div>
+      <Footer />
   </body>
 </html>
