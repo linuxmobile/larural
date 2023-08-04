@@ -23,7 +23,9 @@ const { title, description, publishDate = new Date() } = Astro.props
   <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white">
     <div class="relative z-20 px-4">
       <Header />
-      <slot />
+      <div class="max-w-6xl mx-auto">
+        <slot />
+      </div>
     </div>
       <Footer />
   </body>
