@@ -1,21 +1,31 @@
 ---
+import { Image } from 'astro:assets'
 import ruralbg from 'assets/ruralbg.webp'
-
 ---
 
-<section class="flex items-center justify-center [font-stretch:ultra-expanded] py-6">
+<section
+  class="flex items-center justify-center [font-stretch:ultra-expanded] py-6">
   <div
     class="flex items-center justify-center relative [&>div]:w-36 [&>div]:h-20 [&>div]:blur-3xl [&>div]:absolute [&>div]:z-10">
     <div class="bg-rural-sky/20 -right-52 top-32"></div>
     <div class="bg-rural-blue/40 -left-24 top-16"></div>
   </div>
   <div
-    class="flex flex-col items-center justify-center gap-y-3 pb-10 [&>h1]:text-left [&>h1]:text-4xl [&>h1]:uppercase [&>h1]:font-bold sm:[&>h1]:text-9xl sm:[&>h1]:font-black sm:[&>h1]:max-w-2xl sm:flex-row">
+    class="flex flex-col items-center justify-center gap-y-3 pb-10 [&>h1]:text-left [&>h1]:text-4xl [&>h1]:uppercase [&>h1]:font-bold sm:[&>h1]:text-9xl sm:[&>h1]:font-black sm:[&>h1]:max-w-2xl sm:flex-row relative">
     <h1 class="col-span-1">
       Bienvenidos a <span
         class="bg-clip-text text-transparent bg-gradient-to-bl to-rural-yellow from-rural-red font-black"
-        >la Rural</span>
-      <span class="text-xs font-mono block text-white/30 dark:text-black/30">Bem-vindo a la rural</span>
+        >la Rural</span
+      >
+      <span
+        class="text-xs font-mono block text-rural-black/30 dark:text-rural-white/30"
+        >Bem-vindo a la rural</span
+      >
+      <Image
+        src={ruralbg}
+        alt="La Rural"
+        class="hidden sm:block absolute right-8 bottom-14 w-[28rem] h-28 object-cover"
+      />
     </h1>
     <p class="text-lg leading-tight uppercase sm:text-xl">
       Somos la compañia líder en la industria de ferias, congresos y eventos de
