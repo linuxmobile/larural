@@ -26,27 +26,37 @@ const links = [
   }
 ]
 ---
-<footer class="h-[100lvh] md:h-screen flex flex-col mt-20">
-  <div class="bg-rural-black h-full w-full text-rural-white flex flex-col items-center justify-center uppercase [font-stretch:ultra-expanded] dark:text-rural-black dark:bg-rural-sky">
-    <img src={logo.src} alt="" class="brightness-100 contrast-100 dark:brightness-0 dark:contrast-200">
+
+<footer class="h-[100lvh] md:h-screen flex flex-col items-center mt-20">
+  <div
+    class="bg-rural-black h-full w-screen text-rural-white flex flex-col items-center justify-center uppercase [font-stretch:ultra-expanded] dark:text-rural-black dark:bg-rural-sky">
+    <img
+      src={logo.src}
+      alt=""
+      class="brightness-100 contrast-100 dark:brightness-0 dark:contrast-200"
+    />
     <h3 class="font-black text-4xl">La Rural</h3>
     <p class="font-semibold">predio ferial de buenos aires</p>
   </div>
   <ul class="flex flex-wrap items-center justify-center py-6 gap-x-5 gap-y-2">
     {
-      links.map(link => (
-        <li class="text-rural-black uppercase text-md dark:text-rural-sky">{link.name}</li>
+      links.map((link) => (
+        <li class="text-rural-black uppercase text-md dark:text-rural-sky">
+          {link.name}
+        </li>
       ))
     }
   </ul>
-  <section class="flex flex-col items-center justify-end py-10 text-center gap-y-4 ">
+  <section
+    class="flex flex-col items-center justify-end py-10 text-center gap-y-4">
     <div class="flex flex-col gap-y-2">
       <p class="uppercase font-bold text-xl">Contacto</p>
       <p class="[font-stretch:ultra-expanded]">+54 911 4777-5500</p>
     </div>
     <div class="w-full h-[1px] bg-rural-white max-w-xs mb-1"></div>
     <div class="flex items-center justify-center w-full">
-      <ul class="[&>li>svg]:w-6 [&>li>svg]:aspect-square flex items-center gap-x-3">
+      <ul
+        class="[&>li>svg]:w-6 [&>li>svg]:aspect-square flex items-center gap-x-3">
         <SocialIcons />
       </ul>
     </div>
