@@ -1,10 +1,84 @@
 ---
-
+const links = [
+  {
+    name: 'Inicio',
+    url: '/'
+  },
+  {
+    name: 'Calendario',
+    url: '/calendario'
+  },
+  {
+    name: 'Servicios',
+    url: '/servicios'
+  },
+  {
+    name: 'Espacios',
+    url: '/espacios'
+  },
+  {
+    name: 'Sustentabilidad',
+    url: '/sustentabilidad'
+  },
+  {
+    name: 'Institucional',
+    url: '/institucional'
+  },
+  {
+    name: 'Noticias',
+    url: '/noticias'
+  }
+]
 ---
+
 <nav class="flex items-center justify-between">
-  <a href="#" class="rounded-full px-4 py-2 bg-gradient-to-br to-rural-yellow from-rural-red text-rural-black font-bold uppercase shadow-md shadow-rural-black">La rural ticket</a>
-  <div class="flex flex-col gap-y-2 [&>div]:w-8 [&>div]:h-[2px] [&>div]:rounded-full [&>div]:bg-rural-black dark:[&>div]:bg-gradient-to-r dark:[&>div]:to-rural-red dark:[&>div]:from-rural-yellow">
-    <div class=""></div>
-    <div class=""></div>
+  <a
+    href="#"
+    class="rounded-full px-4 py-2 bg-gradient-to-br to-rural-yellow from-rural-red text-rural-black font-bold uppercase shadow-md shadow-rural-black"
+    >La rural ticket</a
+  >
+  <div
+    class="flex flex-col gap-y-2 w-16 aspect-square items-center justify-center [&>div]:w-8 [&>div]:h-[2px] [&>div]:rounded-full [&>div]:bg-rural-black dark:[&>div]:bg-gradient-to-r dark:[&>div]:to-rural-red dark:[&>div]:from-rural-yellow relative z-30 transition-all duration-500 ease-in-out"
+    id="menu">
+    <div class="transition-all duration-500 ease-in-out" id="line-0"></div>
+    <div class="transition-all duration-500 ease-in-out" id="line-1"></div>
   </div>
 </nav>
+<div
+  class="fixed z-20 inset-x-0 top-0 hidden bg-rural-white text-rural-black w-screen h-[100lvh] sm:h-screen transition-all duration-500 ease-in-out"
+  id="menu-container">
+  <div
+    class="w-full h-full flex flex-col items-end justify-center gap-y-6 px-32 [&>a]:text-6xl [&>a]:font-black [&>a]:uppercase [&>a]:[font-stretch:ultra-expanded]">
+    {
+      links.map(({ name, url }) => (
+        <a href={url} class="">
+          {name}
+        </a>
+      ))
+    }
+  </div>
+</div>
+<script is:inline>
+const menu = document.getElementById('menu')
+const line0 = document.getElementById('line-0')
+const line1 = document.getElementById('line-1')
+const menuContainer = document.getElementById('menu-container')
+
+const handleClick = () => {
+  line0.classList.toggle('rotate-45')
+  line0.classList.toggle('translate-y-1')
+  line0.classList.toggle('rotate-0')
+  line1.classList.toggle('-rotate-45')
+  line1.classList.toggle('-translate-y-1')
+  line1.classList.toggle('-rotate-0')
+  menuContainer.classList.toggle('hidden')
+  document.body.classList.toggle('overflow-hidden')
+  document.body.classList.toggle('h-screen')
+}
+
+const init = () => {
+  menu.addEventListener('click', handleClick)
+}
+
+init()
+</script>

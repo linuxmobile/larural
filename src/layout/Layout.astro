@@ -21,38 +21,39 @@ const { title, description, publishDate = new Date() } = Astro.props
 <!DOCTYPE html>
 <html lang="en" class="overflow-x-hidden 2xl:max-w-6xl mx-auto font-mona-sans">
   <Head title={title} description={description} publishDate={publishDate} />
-  <body class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white">
+  <body
+    class="bg-rural-white text-rural-black dark:bg-rural-black dark:text-rural-white">
     <div class="relative z-20 px-4">
       <Header />
       <div class="max-w-6xl mx-auto">
         <slot />
       </div>
     </div>
-      <Footer />
-      <DotCursor client:only="react" />
+    <Footer />
+    <DotCursor client:only="react" />
+    <script>
+      import Lenis from '@studio-freight/lenis'
+
+      const lenis = new Lenis({
+        duration: 1.6,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 0.6,
+        smoothTouch: false,
+        infinite: false
+      })
+
+      // @ts-ignore
+      function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+
+      requestAnimationFrame(raf)
+
+      window['lenis'] = lenis
+    </script>
   </body>
 </html>
-<script>
-  import Lenis from "@studio-freight/lenis";
-
-  const lenis = new Lenis({
-    duration: 1.6,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-    orientation: "vertical",
-    gestureOrientation: "vertical",
-    smoothWheel: true,
-    wheelMultiplier: .6,
-    smoothTouch: false,
-    infinite: false,
-  });
-
-  // @ts-ignore
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
-
-  window["lenis"] = lenis;
-</script>
