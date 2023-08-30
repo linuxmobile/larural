@@ -3,7 +3,6 @@ import '@styles/global.css'
 import Head from '@components/Head.astro'
 import Header from '@components/Header.astro'
 import Footer from '@components/Footer.astro'
-import DotCursor from '@components/DotCursor'
 
 interface Props {
   title: string
@@ -30,7 +29,6 @@ const { title, description, publishDate = new Date() } = Astro.props
       </div>
     </div>
     <Footer />
-    <DotCursor client:only="react" />
     <script>
       import Lenis from '@studio-freight/lenis'
 
